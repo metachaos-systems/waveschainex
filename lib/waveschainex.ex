@@ -1,4 +1,9 @@
 defmodule Waveschainex do
+  use Tesla
+
+  plug Tesla.Middleware.BaseUrl, "https://nodes.wavesplatform.com"
+  plug Tesla.Middleware.JSON
+
   @moduledoc """
   Documentation for Waveschainex.
   """
@@ -12,7 +17,4 @@ defmodule Waveschainex do
       :world
 
   """
-  def hello do
-    :world
-  end
 end
