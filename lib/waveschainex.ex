@@ -17,4 +17,8 @@ defmodule Waveschainex do
       :world
 
   """
+  def node_status() do
+    get("/node/status")
+  end
+
 end

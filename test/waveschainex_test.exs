@@ -1,8 +1,17 @@
 defmodule WaveschainexTest do
   use ExUnit.Case
-  doctest Waveschainex
+  # doctest Waveschainex
 
-  test "greets the world" do
-    assert Waveschainex.hello() == :world
+  test "get node status" do
+    assert =
+      {:ok,
+       %{
+         body: %{
+           "blockchainHeight" => _,
+           "stateHeight" => _,
+           "updatedDate" => _,
+           "updatedTimestamp" => _
+         }
+       }} = Waveschainex.node_status()
   end
 end
