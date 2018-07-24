@@ -19,4 +19,10 @@ defmodule Waveschainex.NodeTest do
              updated_timestamp: _
            } = env.body
   end
+
+  test "get node version", %{client: client} do
+    {:ok, env} = version(client)
+
+    assert %{version: "Waves " <> _} = env.body
+  end
 end

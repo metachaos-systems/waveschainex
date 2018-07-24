@@ -9,4 +9,12 @@ defmodule Waveschainex.Node do
   def status(client, _opts \\ []) do
     get(client, "/node/status")
   end
+
+  @doc """
+  Get Waves node version
+  """
+  @spec version(Tesla.Env.client(), keyword()) :: {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
+  def version(client, _opts \\ []) do
+    get(client, "/node/version")
+  end
 end
