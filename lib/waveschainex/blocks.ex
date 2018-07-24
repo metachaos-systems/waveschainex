@@ -9,4 +9,14 @@ defmodule Waveschainex.Block do
   def at(client, height, _opts \\ []) do
     get(client, "/blocks/at/#{height}")
   end
+
+  @doc """
+  Height
+  Get blockchain height
+
+  """
+  @spec height(Tesla.Env.client(), keyword()) :: {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
+  def height(client, _opts \\ []) do
+    get(client, "/blocks/height")
+  end
 end

@@ -45,4 +45,11 @@ defmodule Waveschainex.BlockTest do
                    version: 2
                  }
   end
+
+  test "get height", %{client: client} do
+    {:ok, env} = height(client, 1000)
+
+    assert %{height: height} = env.body
+    assert is_integer(height)
+  end
 end
