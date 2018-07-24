@@ -24,7 +24,8 @@ defmodule Waveschainex.MixProject do
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
       {:tesla, "~> 1.1"},
-      {:jason, "~> 1.0"}
+      {:jason, "~> 1.0"},
+      {:assert_value, "~> 0.9"},
     ]
   end
 end
