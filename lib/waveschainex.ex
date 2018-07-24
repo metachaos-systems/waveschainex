@@ -9,7 +9,7 @@ defmodule Waveschainex do
   def client(pre \\ [], post \\ []) do
     Tesla.build_client(
       [
-        {Tesla.Middleware.BaseUrl, "https://nodes.wavesplatform.com"}
+        {Tesla.Middleware.BaseUrl, "https://nodes.wavesnodes.com"}
       ] ++ pre,
       [{Waveschainex.ResponseMiddleware, []}, {Tesla.Middleware.JSON, []}] ++ post
     )
