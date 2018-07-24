@@ -26,6 +26,7 @@ defmodule Waveschainex.MixProject do
       {:tesla, "~> 1.1"},
       {:jason, "~> 1.0"},
       {:assert_value, "~> 0.9"},
+      {:atomic_map, "~> 0.9"}
     ]
   end
 end
