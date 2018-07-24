@@ -11,12 +11,19 @@ defmodule Waveschainex.Block do
   end
 
   @doc """
-  Height
   Get blockchain height
 
   """
   @spec height(Tesla.Env.client(), keyword()) :: {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
   def height(client, _opts \\ []) do
     get(client, "/blocks/height")
+  end
+
+  @doc """
+  Get last block data
+  """
+  @spec last(Tesla.Env.client(), keyword()) :: {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
+  def last(client, _opts \\ []) do
+    get(client, "/blocks/last")
   end
 end

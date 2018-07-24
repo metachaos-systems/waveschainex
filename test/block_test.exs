@@ -52,4 +52,23 @@ defmodule Waveschainex.BlockTest do
     assert %{height: height} = env.body
     assert is_integer(height)
   end
+
+  test "get last block data", %{client: client} do
+    {:ok, env} = last(client)
+
+    assert %{
+             blocksize: _,
+             features: _,
+             fee: _,
+             generator: _,
+             height: _,
+             nxt_consensus: _,
+             reference: _,
+             signature: _,
+             timestamp: _,
+             transaction_count: _,
+             transactions: _,
+             version: _
+           } = env.body
+  end
 end
