@@ -17,4 +17,20 @@ defmodule Waveschainex.Asset do
   def balance(client, address, asset_id, _opts \\ []) do
     get(client, "/assets/balance/#{address}/#{asset_id}")
   end
+
+  @doc """
+  Account's balances for all assets
+
+  ## Parameters
+
+  - client : Tesla client
+  - address (String.t): Address
+  - opts: Optional parameters
+
+  """
+  @spec balances(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
+  def balances(client, address, _opts \\ []) do
+    get(client, "/assets/balance/#{address}")
+  end
 end

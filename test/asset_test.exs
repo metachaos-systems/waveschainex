@@ -16,4 +16,11 @@ defmodule Waveschainex.AssetTest do
 
     assert %{address: _, asset_id: _, balance: _} = env.body
   end
+
+  test "get all asset balances for address", %{client: client} do
+    address = "3PAfgHQPgodM6MxUzqRkepiKofGnECNoxt5"
+    {:ok, env} = balances(client, address)
+
+    assert %{address: _, balances: _} = env.body
+  end
 end
