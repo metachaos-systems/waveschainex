@@ -53,6 +53,16 @@ defmodule Waveschainex.BlockTest do
     assert is_integer(height)
   end
 
+  test "get block by signature", %{client: client} do
+    {:ok, env} =
+      signature(
+        client,
+        "4nzFPfeBf1GkgEH7TRXLTxQYvwW3K35HgsEYYFrm4VPxSdtBQy988fXow9eqb1DBen6NnEtn7KiMQ421RvBSjnaZ"
+      )
+
+    assert env.body.height == 1000
+  end
+
   test "get last block data", %{client: client} do
     {:ok, env} = last(client)
 

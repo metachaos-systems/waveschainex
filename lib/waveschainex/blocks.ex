@@ -26,4 +26,19 @@ defmodule Waveschainex.Block do
   def last(client, _opts \\ []) do
     get(client, "/blocks/last")
   end
+
+  @doc """
+  Get block by a specified Base58-encoded signature
+
+  ## Parameters
+
+  - client: Tesla client
+  - signature (String.t): Base58-encoded signature
+  - opts: Optional parameters
+  """
+  @spec signature(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
+  def signature(client, signature, _opts \\ []) do
+    get(client, "/blocks/signature/#{signature}")
+  end
 end
