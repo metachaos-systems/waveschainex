@@ -17,6 +17,18 @@ end
 
 The docs can be found at [https://hexdocs.pm/waveschainex](https://hexdocs.pm/waveschainex).
 
+## Configuration
+
+Default setting for WAVES nodes API is `https://nodes.wavesnodes.com`.
+
+To configure a custom url use the following config setings:
+
+```
+config :waveschainex,
+  waves_node_url: "YOUR_CUSTOM_URL"
+```
+
+
 ## Implemented API methods
 
 All functions are documented, covered by tests and include typespecs.
