@@ -30,6 +30,7 @@ All functions are documented, covered by tests and include typespecs.
 * `at(client, height, _opts \\ [])`: Get block at specified height
 * `height(client, _opts \\ [])`: Get blockchain height
 * `last(client, _opts \\ [])`: Get last block data
+* `signature(client, signature, _opts \\ [])`: Get block for specified Base58 signature
 
 ### Asset module
 

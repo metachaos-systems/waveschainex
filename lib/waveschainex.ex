@@ -1,5 +1,6 @@
 defmodule Waveschainex do
   use Tesla
+  @default_url "https://nodes.wavesnodes.com"
 
   @moduledoc """
   Documentation for Waveschainex.
@@ -7,9 +8,10 @@ defmodule Waveschainex do
 
   @spec client(list(), list()) :: Tesla.Env.client()
   def client(pre \\ [], post \\ []) do
+    url = Application.get_env(:waveschainex, :waves_node_url, @default_url)
     Tesla.build_client(
       [
-        {Tesla.Middleware.BaseUrl, "https://nodes.wavesnodes.com"}
+        {Tesla.Middleware.BaseUrl, url}
       ] ++ pre,
       [{Waveschainex.ResponseMiddleware, []}, {Tesla.Middleware.JSON, []}] ++ post
     )
