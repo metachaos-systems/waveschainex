@@ -7,7 +7,8 @@ defmodule Waveschainex.MixProject do
       version: "0.1.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      package: package()
     ]
   end
 
@@ -27,6 +28,19 @@ defmodule Waveschainex.MixProject do
       {:jason, "~> 1.0"},
       {:assert_value, "~> 0.9"},
       {:atomic_map, "~> 0.9"}
+    ]
+  end
+
+  defp package do
+    [
+      name: :waveschainex,
+      files: ["lib", "mix.exs", "README*", "LICENSE*"],
+      maintainers: ["ontofractal"],
+      licenses: ["MIT"],
+      links: %{
+        "GitHub" => "https://github.com/cyberpunk-ventures/waveschainex",
+        "Cyberpunk Ventures" => "http://cyberpunk.ventures"
+      }
     ]
   end
 end
