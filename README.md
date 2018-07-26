@@ -1,5 +1,7 @@
 # Waveschainex
 
+![](https://i.imgur.com/tKzTi9N.png)
+
 Waveschainex is an Elixir/Erlang client for Waves REST API.
 
 ## Installation
