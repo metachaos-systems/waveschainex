@@ -27,7 +27,8 @@ defmodule Waveschainex.MixProject do
       {:tesla, "~> 1.1"},
       {:jason, "~> 1.0"},
       {:assert_value, "~> 0.9"},
-      {:atomic_map, "~> 0.9"}
+      {:atomic_map, "~> 0.9"},
+      {:ex_doc, ">= 0.0.0"}
     ]
   end
 
@@ -35,6 +36,7 @@ defmodule Waveschainex.MixProject do
     [
       name: :waveschainex,
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
+      description: "Elixir/Erlang client for WAVES blockchain nodes REST API",
       maintainers: ["ontofractal"],
       licenses: ["MIT"],
       links: %{
