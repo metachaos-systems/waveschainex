@@ -38,6 +38,8 @@ All functions are documented, covered by tests and include typespecs.
 ### Address module
 
 * `balance(client, address, _opts \\ [])`: Account's balance
+* `data(client, address, _opts \\ [])`: Read all data posted by an account using Data Transactions
+* `public_key(client, address, _opts \\ [])`: Generate a address from public key
 
 ### Block module
 
@@ -55,6 +57,7 @@ All functions are documented, covered by tests and include typespecs.
 ### Transaction module
 
 * `info(client, id, _opts \\ [])`:  Get transaction info
+* `unconfirmed(client, _opts \\ [])`: Get list of unconfirmed transactions
 
 ### Node module
 
