@@ -1,5 +1,5 @@
 defmodule Waveschainex do
-  use Tesla
+  use Tesla, docs: false
   @default_url "https://nodes.wavesnodes.com"
 
   @moduledoc """

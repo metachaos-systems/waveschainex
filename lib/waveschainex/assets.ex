@@ -1,5 +1,5 @@
 defmodule Waveschainex.Asset do
-  use Tesla
+  use Tesla, docs: false
 
   @doc """
   Account balance by given asset
