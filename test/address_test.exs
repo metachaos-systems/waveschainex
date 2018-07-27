@@ -15,4 +15,12 @@ defmodule Waveschainex.AddressTest do
 
     assert %{address: _, balance: _, confirmations: _} = env.body
   end
+
+  test "get data for address", %{client: client} do
+    # FIXME: update address to one that has data transactions on mainnet 
+    address = "3PAfgHQPgodM6MxUzqRkepiKofGnECNoxt5"
+    {:ok, env} = data(client, address)
+
+    assert env.body == []
+  end
 end

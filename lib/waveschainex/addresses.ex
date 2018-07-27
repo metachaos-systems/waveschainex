@@ -1,5 +1,6 @@
 defmodule Waveschainex.Address do
   use Tesla
+
   @doc """
   Account's balance
 
@@ -14,5 +15,21 @@ defmodule Waveschainex.Address do
           {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
   def balance(client, address, _opts \\ []) do
     get(client, "/addresses/balance/#{address}")
+  end
+
+  @doc """
+  Read all data posted by an account using Data Transactions
+
+  ## Parameters
+
+  - client : Tesla client
+  - address (String.t): Address
+  - opts: Optional parameters
+
+  """
+  @spec data(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
+  def data(client, address, _opts \\ []) do
+    get(client, "/addresses/data/#{address}")
   end
 end
