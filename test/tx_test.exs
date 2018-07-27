@@ -29,4 +29,9 @@ defmodule Waveschainex.TransactionsTest do
                    type: 1
                  }
   end
+
+  test "get unconfirmed transactions", %{client: client} do
+    {:ok, env} = unconfirmed(client)
+    assert is_list(env.body)
+  end
 end
