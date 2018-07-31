@@ -10,7 +10,7 @@ defmodule Waveschainex.ResponseMiddleware do
     |> handle_response()
   end
 
-  def handle_response(response) do
+  def handle_response(response)  do
     with {:ok, env} <- response do
       env = put_in(env.body, AtomicMap.convert(env.body, %{safe: false}))
 

@@ -45,4 +45,12 @@ defmodule Waveschainex.AssetTest do
                    script_text: nil
                  }
   end
+
+  test "get balance distribution by account", %{client: client} do
+    asset_id = "BrjUWjndUanm5VsJkbUip8VRYy6LWJePtxya3FNv4TQa"
+    {:ok, env} = balance_distribution(client, asset_id)
+
+    assert_value is_map(env.body)
+  end
+
 end
