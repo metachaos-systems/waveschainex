@@ -30,4 +30,20 @@ defmodule Waveschainex.Transactions do
   def unconfirmed(client, _opts \\ []) do
     get(client, "/transactions/unconfirmed")
   end
+
+  @doc """
+  Get list of transactions where specified address has been involved
+
+  ## Parameters
+
+  - client : Tesla client
+  - address (String.t): Wallet address
+  - limit (integer()): Specified number of records to be returned
+  - opts: Optional parameters
+  """
+  @spec address_limit(Tesla.Env.client(), String.t(), integer(), keyword()) ::
+          {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
+  def address_limit(client, address, limit, _opts \\ []) do
+    get(client, "/transactions/address/#{address}/limit/#{limit}")
+  end
 end

@@ -34,4 +34,13 @@ defmodule Waveschainex.TransactionsTest do
     {:ok, env} = unconfirmed(client)
     assert is_list(env.body)
   end
+
+  test "get transactions involving address with limit", %{client: client} do
+    limit = 100
+    address = "3PAWwWa6GbwcJaFzwqXQN5KQm7H96Y7SHTQ"
+    {:ok, env} = address_limit(client, address, limit)
+
+    assert length(hd(env.body)) == 100
+    assert %{id: _, sender: _, timestamp: _, type: _, version: _} = hd(hd(env.body))
+  end
 end
