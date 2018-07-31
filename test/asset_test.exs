@@ -50,7 +50,10 @@ defmodule Waveschainex.AssetTest do
     asset_id = "BrjUWjndUanm5VsJkbUip8VRYy6LWJePtxya3FNv4TQa"
     {:ok, env} = balance_distribution(client, asset_id)
 
-    assert_value is_map(env.body)
+    {random_account, _} = hd(Enum.into(env.body, []))
+
+    assert is_map(env.body)
+    assert is_binary(random_account)
   end
 
 end
