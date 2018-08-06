@@ -59,9 +59,9 @@ defmodule Waveschainex.Asset do
   - asset_id (String.t): Asset ID
   - opts: Optional parameters
   """
-  @spec balance_distribution(Tesla.Env.client, String.t, keyword()) :: {:ok, Tesla.Env.t} | {:error, Tesla.Env.t}
+  @spec balance_distribution(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
   def balance_distribution(client, asset_id, _opts \\ []) do
-     get(client, "/assets/#{asset_id}/distribution")
+    get(client, "/assets/#{asset_id}/distribution")
   end
-
 end

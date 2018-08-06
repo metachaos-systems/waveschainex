@@ -10,12 +10,13 @@ defmodule Waveschainex.ResponseMiddleware do
     |> handle_response()
   end
 
-  def handle_response(response)  do
+  def handle_response(response) do
     with {:ok, env} <- response do
-      env = cond do
-        is_balance_distribution?(env.url) -> env
-        true -> put_in(env.body, AtomicMap.convert(env.body, %{safe: false}))
-      end
+      env =
+        cond do
+          is_balance_distribution?(env.url) -> env
+          true -> put_in(env.body, AtomicMap.convert(env.body, %{safe: false}))
+        end
 
       {:ok, env}
     else
@@ -26,5 +27,4 @@ defmodule Waveschainex.ResponseMiddleware do
   def is_balance_distribution?(url) do
     url =~ ~r(/assets/\w+/distribution)
   end
-
 end
