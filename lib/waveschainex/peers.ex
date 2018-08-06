@@ -14,4 +14,19 @@ defmodule Waveschainex.Peers do
   def all_peers(client, _opts \\ []) do
     get(client, "/peers/all")
   end
+
+  @doc """
+  Blacklisted peers list
+
+  ## Parameters
+
+  - client : Tesla client
+  - opts: Optional parameters
+
+  """
+  @spec blacklisted_peers(Tesla.Env.client(), keyword()) ::
+          {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
+  def blacklisted_peers(client, _opts \\ []) do
+    get(client, "/peers/blacklisted")
+  end
 end
