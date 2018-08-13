@@ -16,6 +16,19 @@ defmodule Waveschainex.AddressTest do
     assert %{address: _, balance: _, confirmations: _} = env.body
   end
 
+  test "get balance details for address", %{client: client} do
+    address = "3PAfgHQPgodM6MxUzqRkepiKofGnECNoxt5"
+    {:ok, env} = balance_details(client, address)
+
+    assert %{
+             address: "3PAfgHQPgodM6MxUzqRkepiKofGnECNoxt5",
+             available: _,
+             effective: _,
+             generating: _,
+             regular: _
+           } = env.body
+  end
+
   test "get data for address", %{client: client} do
     # FIXME: update address to one that has data transactions on mainnet
     address = "3PAfgHQPgodM6MxUzqRkepiKofGnECNoxt5"
