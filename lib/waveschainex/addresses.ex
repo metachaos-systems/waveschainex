@@ -64,4 +64,20 @@ defmodule Waveschainex.Address do
   def public_key(client, public_key, _opts \\ []) do
     get(client, "/addresses/publicKey/#{public_key}")
   end
+
+  @doc """
+  Read data associated with an account and a key
+
+  ## Parameters
+
+  - client : Tesla client
+  - address (String.t): Address
+  - key (String.t): Data key
+  - opts: Optional parameters
+  """
+  @spec get_data_item(Tesla.Env.client(), String.t(), String.t(), keyword()) ::
+          {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
+  def get_data_item(client, address, key, _opts \\ []) do
+    get(client, "/addresses/data/#{address}/#{key}")
+  end
 end
