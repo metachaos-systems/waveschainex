@@ -22,4 +22,19 @@ defmodule Waveschainex.PeersTest do
     assert is_list(env.body)
     assert %{hostname: _, reason: _, timestamp: _} = hd(env.body.peers)
   end
+
+  test "get connected peers", %{client: client} do
+    {:ok, env} = connected_peers(client)
+
+    assert is_list(env.body.peers)
+
+    assert %{
+             address: _,
+             application_name: _,
+             application_version: _,
+             declared_address: _,
+             peer_name: _,
+             peer_nonce: _
+           } = hd(env.body.peers)
+  end
 end
