@@ -48,4 +48,10 @@ defmodule Waveschainex.TransactionsTest do
     assert length(hd(env.body)) == 100
     assert %{id: _, sender: _, timestamp: _, type: _, version: _} = hd(hd(env.body))
   end
+
+  test "get unconfirmed transaction info", %{client: client} do
+    {:ok, env} = unconfirmed(client)
+    {:ok, env_utx} = utx_transaction_info(client, hd(env.body).id)
+    assert env_utx.body.id == hd(env.body).id
+  end
 end

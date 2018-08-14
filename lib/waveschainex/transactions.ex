@@ -60,4 +60,19 @@ defmodule Waveschainex.Transactions do
   def utx_size(client, _opts \\ []) do
     get(client, "/transactions/unconfirmed/size")
   end
+
+  @doc """
+  Get transaction that is in the UTX
+
+  ## Parameters
+
+  - client : Tesla client
+  - id (String.t): Transaction id
+  - opts: Optional parameters
+  """
+  @spec utx_transaction_info(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
+  def utx_transaction_info(client, id, _opts \\ []) do
+    get(client, "/transactions/unconfirmed/info/#{id}")
+  end
 end
