@@ -46,4 +46,18 @@ defmodule Waveschainex.Transactions do
   def address_limit(client, address, limit, _opts \\ []) do
     get(client, "/transactions/address/#{address}/limit/#{limit}")
   end
+
+  @doc """
+  Get number of unconfirmed transactions in the UTX pool
+
+  ## Parameters
+
+  - client : Tesla client
+  - opts: Optional parameters
+
+  """
+  @spec utx_size(Tesla.Env.client(), keyword()) :: {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
+  def utx_size(client, _opts \\ []) do
+    get(client, "/transactions/unconfirmed/size")
+  end
 end

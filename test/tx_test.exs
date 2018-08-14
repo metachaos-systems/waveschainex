@@ -35,6 +35,11 @@ defmodule Waveschainex.TransactionsTest do
     assert is_list(env.body)
   end
 
+  test "get number of unconfirmed transactions", %{client: client} do
+    {:ok, env} = utx_size(client)
+    assert %{size: _} = env.body
+  end
+
   test "get transactions involving address with limit", %{client: client} do
     limit = 100
     address = "3PAWwWa6GbwcJaFzwqXQN5KQm7H96Y7SHTQ"
