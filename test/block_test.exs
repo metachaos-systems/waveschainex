@@ -81,4 +81,13 @@ defmodule Waveschainex.BlockTest do
              version: _
            } = env.body
   end
+
+  test "get block data for address", %{client: client} do
+    {:ok, env} = address(client, 0, 50, "3P274YB5qseSE9DTTL3bpSjosZrYBPDpJ8k")
+
+    assert_value hd(hd(env.body).transactions).id ==
+                   "2DVtfgXjpMeFf2PQCqvwxAiaGbiDsxDjSdNQkc5JQ74eWxjWFYgwvqzC4dn7iB1AhuM32WxEiVi1SGijsBtYQwn8"
+
+    assert_value length(env.body) == 1
+  end
 end
