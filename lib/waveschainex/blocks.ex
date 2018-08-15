@@ -74,4 +74,20 @@ defmodule Waveschainex.Block do
   def seq(client, from, to, _opts \\ []) do
     get(client, "/blocks/seq/#{from}/#{to}")
   end
+
+  @doc """
+  Get children of specified block
+
+  ## Parameters
+
+  - client: Tesla client
+  - signature (String.t): Base58-encoded signature
+  - opts: Optional parameters
+
+  """
+  @spec child(Tesla.Env.client(), String.t(), keyword()) ::
+          {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
+  def child(client, signature, _opts \\ []) do
+    get(client, "/blocks/child/#{signature}")
+  end
 end

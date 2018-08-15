@@ -96,7 +96,18 @@ defmodule Waveschainex.BlockTest do
 
     assert_value hd(env.body).signature ==
                    "FSH8eAAzZNqnG8xgTZtz5xuLqXySsXgAjmFEC25hXMbEufiGjqWPnGCZFt6gLiVLJny16ipxRNAkkzjjhqTjBE2"
+
     assert_value List.last(env.body).signature ==
                    "4CW6BuVPqhtuKPk3U45hQqDHVywmGTCQECdYd6swrQBAk2tdCCWVBJpjVyGaPJ2bL9BesHx1eRsxbw8BMB5qogFq"
+  end
+
+  test "get children of a block", %{client: client} do
+    {:ok, env} =
+      child(
+        client,
+        "2hzzrF6hs2cvjWjEfwHtogUnY7L3SzsDfx8NBSXfuXswBvW6cQWG4nKRM6nHnhoKWr6m2dATPKYfoLGs7UGTRq6e"
+      )
+
+    assert_value env.body.timestamp == 1_534_323_947_057
   end
 end
