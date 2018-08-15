@@ -58,4 +58,20 @@ defmodule Waveschainex.Block do
   def address(client, from, to, address, _opts \\ []) do
     get(client, "/blocks/address/#{address}/#{from}/#{to}")
   end
+
+  @doc """
+  Get block at specified heights
+
+  ## Parameters
+
+  - client: Tesla client
+  - from (integer()): Start block height
+  - to (integer()): End block height
+  - opts: Optional parameters
+  """
+  @spec seq(Tesla.Env.client(), integer(), integer(), keyword()) ::
+          {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
+  def seq(client, from, to, _opts \\ []) do
+    get(client, "/blocks/seq/#{from}/#{to}")
+  end
 end

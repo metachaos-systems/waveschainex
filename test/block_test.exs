@@ -90,4 +90,13 @@ defmodule Waveschainex.BlockTest do
 
     assert_value length(env.body) == 1
   end
+
+  test "get sequential block data at specified hights", %{client: client} do
+    {:ok, env} = seq(client, 0, 10)
+
+    assert_value hd(env.body).signature ==
+                   "FSH8eAAzZNqnG8xgTZtz5xuLqXySsXgAjmFEC25hXMbEufiGjqWPnGCZFt6gLiVLJny16ipxRNAkkzjjhqTjBE2"
+    assert_value List.last(env.body).signature ==
+                   "4CW6BuVPqhtuKPk3U45hQqDHVywmGTCQECdYd6swrQBAk2tdCCWVBJpjVyGaPJ2bL9BesHx1eRsxbw8BMB5qogFq"
+  end
 end
