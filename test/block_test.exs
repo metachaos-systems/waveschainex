@@ -110,4 +110,13 @@ defmodule Waveschainex.BlockTest do
 
     assert_value env.body.timestamp == 1_534_323_947_057
   end
+
+  test "get genesis block", %{client: client} do
+    {:ok, env} = first(client)
+
+    assert env.body.height == 1
+    assert_value env.body.signature ==
+                   "FSH8eAAzZNqnG8xgTZtz5xuLqXySsXgAjmFEC25hXMbEufiGjqWPnGCZFt6gLiVLJny16ipxRNAkkzjjhqTjBE2"
+    assert_value length(env.body.transactions) == 6
+  end
 end

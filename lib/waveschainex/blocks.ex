@@ -90,4 +90,18 @@ defmodule Waveschainex.Block do
   def child(client, signature, _opts \\ []) do
     get(client, "/blocks/child/#{signature}")
   end
+
+  @doc """
+  Get genesis block data
+
+  ## Parameters
+
+  - client: Tesla client
+  - opts: Optional parameters
+
+  """
+  @spec first(Tesla.Env.client(), keyword()) :: {:ok, Tesla.Env.t()} | {:error, Tesla.Env.t()}
+  def first(client, _opts \\ []) do
+    get(client, "/blocks/first")
+  end
 end
