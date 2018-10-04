@@ -20,7 +20,7 @@ defmodule Waveschainex.PeersTest do
     {:ok, env} = blacklisted_peers(client)
 
     assert is_list(env.body)
-    assert %{hostname: _, reason: _, timestamp: _} = hd(env.body.peers)
+    assert %{hostname: _, reason: _, timestamp: _} = hd(env.body)
   end
 
   test "get connected peers", %{client: client} do
