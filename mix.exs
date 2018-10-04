@@ -4,7 +4,7 @@ defmodule Waveschainex.MixProject do
   def project do
     [
       app: :waveschainex,
-      version: "0.1.1",
+      version: "0.2.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -36,7 +36,7 @@ defmodule Waveschainex.MixProject do
     [
       name: :waveschainex,
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
-      description: "Elixir/Erlang client for WAVES blockchain nodes REST API",
+      description: "Elixir/Erlang client for WAVES blockchain REST API",
       maintainers: ["ontofractal"],
       licenses: ["MIT"],
       links: %{
