@@ -1,5 +1,5 @@
 defmodule Waveschainex.Peers do
-  use Tesla
+  use Tesla, docs: false, only: ~w(get)a
 
   @doc """
   Peer list

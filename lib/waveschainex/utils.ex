@@ -1,5 +1,5 @@
 defmodule Waveschainex.Utils do
-  use Tesla, docs: false
+  use Tesla, docs: false, only: ~w(get)a
 
   @doc """
   Current Node time (UTC)

@@ -1,5 +1,5 @@
 defmodule Waveschainex.Transactions do
-  use Tesla, docs: false
+  use Tesla, docs: false, only: ~w(get)a
 
   @doc """
   Get transaction info

@@ -1,5 +1,5 @@
 defmodule Waveschainex.Node do
-  use Tesla, docs: false
+  use Tesla, docs: false, only: ~w(get)a
 
   @doc """
   Get status of the running node

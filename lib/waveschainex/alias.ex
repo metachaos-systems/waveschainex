@@ -1,5 +1,5 @@
 defmodule Waveschainex.Alias do
-  use Tesla
+  use Tesla, docs: false, only: ~w(get)a
 
   @doc """
   Returns an address associated with an Alias. Alias should be plain text without an alias prefix and network code.

@@ -1,5 +1,5 @@
 defmodule Waveschainex.Address do
-  use Tesla, docs: false
+  use Tesla, docs: false, only: ~w(get)a
 
   @doc """
   Account's balance

@@ -1,5 +1,5 @@
 defmodule Waveschainex.Block do
-  use Tesla, docs: false
+  use Tesla, docs: false, only: ~w(get)a
 
   @doc """
   Get block at specified height

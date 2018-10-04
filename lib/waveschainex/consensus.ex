@@ -1,5 +1,5 @@
 defmodule Waveschainex.Consensus do
-  use Tesla, docs: false
+  use Tesla, docs: false, only: ~w(get)a
 
   @doc """
   Shows which consensus algo being using
