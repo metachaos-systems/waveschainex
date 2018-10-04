@@ -21,6 +21,9 @@ defmodule Waveschainex.AliasTest do
 
     {:ok, env} = alias_of_address(client, address)
 
-    assert_value env.body == []
+    first = hd(env.body)
+    assert is_list(env.body)
+    assert is_binary(first)
+    assert String.contains?(first, "alias")
   end
 end
