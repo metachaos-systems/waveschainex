@@ -28,22 +28,18 @@ defmodule Waveschainex.AssetTest do
     asset_id = "BrjUWjndUanm5VsJkbUip8VRYy6LWJePtxya3FNv4TQa"
     {:ok, env} = details(client, asset_id)
 
-    assert env.body == %{
+    assert %{
              asset_id: "BrjUWjndUanm5VsJkbUip8VRYy6LWJePtxya3FNv4TQa",
-             complexity: 0,
              decimals: 8,
              description: "Zcash token",
-             extra_fee: 0,
              issue_height: 693_041,
              issue_timestamp: 1_507_028_599_362,
              issuer: "3PAfgHQPgodM6MxUzqRkepiKofGnECNoxt5",
              min_sponsored_asset_fee: nil,
              name: "Zcash",
-             quantity: 2_100_000_000_000_000,
+             quantity: _,
              reissuable: false,
-             script: nil,
-             script_text: nil
-           }
+           } = env.body
   end
 
   test "get balance distribution by account", %{client: client} do
